@@ -97,19 +97,21 @@ if (musicToggle && weddingMusic) {
     const playIcon = musicToggle.querySelector('.play-icon');
     const pauseIcon = musicToggle.querySelector('.pause-icon');
 
-    musicToggle.addEventListener('click', () => {
-        if (weddingMusic.paused) {
-            weddingMusic.play().catch(err => {
-                console.log('Audio playback failed:', err);
-            });
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'block';
-            musicToggle.setAttribute('aria-label', 'Pause music');
-        } else {
-            weddingMusic.pause();
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
-            musicToggle.setAttribute('aria-label', 'Play music');
-        }
-    });
+    if (playIcon && pauseIcon) {
+        musicToggle.addEventListener('click', () => {
+            if (weddingMusic.paused) {
+                weddingMusic.play().catch(err => {
+                    console.log('Audio playback failed:', err);
+                });
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+                musicToggle.setAttribute('aria-label', 'Pause music');
+            } else {
+                weddingMusic.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                musicToggle.setAttribute('aria-label', 'Play music');
+            }
+        });
+    }
 }
