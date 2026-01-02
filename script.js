@@ -88,3 +88,23 @@ document.querySelectorAll('.story-item, .event-card, .gallery-item').forEach(el 
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+// Music Player Toggle
+const musicToggle = document.getElementById('musicToggle');
+const weddingMusic = document.getElementById('weddingMusic');
+const playIcon = musicToggle.querySelector('.play-icon');
+const pauseIcon = musicToggle.querySelector('.pause-icon');
+
+musicToggle.addEventListener('click', () => {
+    if (weddingMusic.paused) {
+        weddingMusic.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        musicToggle.setAttribute('aria-label', 'Pause music');
+    } else {
+        weddingMusic.pause();
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        musicToggle.setAttribute('aria-label', 'Play music');
+    }
+});

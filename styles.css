@@ -337,6 +337,36 @@ body {
     transform: scale(1.05);
 }
 
+/* Music Toggle Button */
+.music-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 163, 115, 0.6);
+    background: var(--secondary-color);
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
 /* Footer */
 .footer {
     padding: 60px 0;
@@ -435,6 +465,18 @@ body {
 
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .music-toggle {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .music-toggle svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
