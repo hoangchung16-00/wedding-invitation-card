@@ -27,6 +27,17 @@
         <div class="hero-image-placeholder">
             <p class="placeholder-text">Hero Banner Image Placeholder<br>(Replace with couple's photo)</p>
         </div>
+        
+        <!-- Music Player Button -->
+        <button id="musicToggle" class="music-toggle" aria-label="Play music">
+            <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+            </svg>
+        </button>
+        
         <div class="hero-content">
             <h1 class="couple-names">Hoang Duc <span class="ampersand">&</span> Ha My</h1>
             <p class="wedding-date">March 15, 2026</p>
@@ -170,6 +181,11 @@
             <p class="footer-hashtag">#HoangDucHaMy2026</p>
         </div>
     </footer>
+
+    <!-- Audio Element -->
+    <audio id="weddingMusic" loop>
+        <source src="Westlife_-_Beautiful_In_White_RuWikipedia.Ru_(mp3.pm).mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
 </body>
