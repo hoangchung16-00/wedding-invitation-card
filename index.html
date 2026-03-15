@@ -41,7 +41,7 @@
 
         <div class="hero-content">
             <h1 class="couple-names">Hoàng Đức <span class="ampersand">&</span> Hà My</h1>
-            <p class="wedding-date">15 tháng 3 năm 2026</p>
+            <p class="wedding-date">04 tháng 04 năm 2026</p>
             <div class="countdown" id="countdown">
                 <div class="countdown-item">
                     <span id="days" class="countdown-value">00</span>
@@ -75,7 +75,12 @@
                     </div>
                 </div>
                 <div class="intro-content">
-                    <p class="intro-text">Hà My – cô gái với nụ cười ấm áp và trái tim nhân hậu. Từ ngày gặp nhau, chúng tôi đã biết rằng đây là duyên phận trời định. Cảm ơn em đã chọn anh làm bạn đồng hành suốt cuộc đời.</p>
+                    <p class="intro-name">Hoàng Thị Hà My</p>
+                    <div class="intro-family">
+                        <p class="intro-label">Ông/Bà:</p>
+                        <p class="intro-parents">HOÀNG KIM KÝ<br>NGÔ THỊ LIÊN</p>
+                        <p class="intro-address">Khu Phố 6<br>P. Đông Hà, Quảng Trị</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,13 +98,18 @@
                     </div>
                 </div>
                 <div class="intro-content">
-                    <p class="intro-text">Hoàng Đức – chàng trai chín chắn, trách nhiệm và luôn yêu thương gia đình. Anh là điểm tựa vững chắc và là người bạn đời mà em mong đợi. Cảm ơn anh đã đến bên em.</p>
+                    <p class="intro-name">Trần Hoàng Đức</p>
+                    <div class="intro-family">
+                        <p class="intro-label">Ông/Bà:</p>
+                        <p class="intro-parents">TRẦN VĂN LUYẾN<br>HOÀNG THỊ LỆ</p>
+                        <p class="intro-address">18 Võ Thị Sáu<br>P. Đông Hà, Quảng Trị</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Thư mời (ảnh + thời gian + địa điểm + nút Gửi thiệp mừng) -->
+    <!-- Section 4: Thư mời (ảnh + 2 ngày: nhà nam / nhà nữ + địa điểm + nút Gửi thiệp mừng) -->
     <section id="thu-moi" class="invitation-section">
         <div class="container">
             <h2 class="section-title">Thư mời</h2>
@@ -111,18 +121,25 @@
                     </div>
                 </div>
                 <div class="invitation-details">
-                    <div class="invitation-card">
-                        <div class="event-icon">📅</div>
-                        <h3>Thời gian</h3>
-                        <p class="event-info">Thứ Bảy, 15 tháng 3 năm 2026</p>
-                        <p class="event-time">Lễ thành hôn: 15:00</p>
-                        <p class="event-time">Tiệc chiêu đãi: 17:00</p>
-                    </div>
-                    <div class="invitation-card">
-                        <div class="event-icon">📍</div>
-                        <h3>Địa điểm</h3>
-                        <p class="event-info">Grand Hall</p>
-                        <p class="event-address">123 Đại lộ Trung tâm<br>Quận Nội thành<br>Thành phố, Tỉnh 12345</p>
+                    <div class="invitation-days-row">
+                        <!-- Nhà nữ -->
+                        <div class="invitation-day">
+                            <h3 class="invitation-day-title">Nhà nữ</h3>
+                            <p class="venue-name venue-name-script">Nhà Văn Hoá Khu Phố 6</p>
+                            <p class="venue-address">KHU PHỐ 6, P. ĐÔNG HÀ, QUẢNG TRỊ</p>
+                            <p class="venue-time-label">VÀO LÚC:</p>
+                            <p class="venue-datetime">11 GIỜ 00' | THỨ BẢY | 04.04.2026</p>
+                            <p class="venue-lunar">(Nhằm ngày 17 tháng 02 năm Bính Ngọ)</p>
+                        </div>
+                        <!-- Nhà nam -->
+                        <div class="invitation-day">
+                            <h3 class="invitation-day-title">Nhà nam</h3>
+                            <p class="venue-name venue-name-script">Moonlight Palace 1</p>
+                            <p class="venue-address">TẦNG 1, SỐ 145 QUỐC LỘ 9B, NAM ĐÔNG HÀ, QUẢNG TRỊ</p>
+                            <p class="venue-time-label">VÀO LÚC:</p>
+                            <p class="venue-datetime">11 GIỜ 00' | CHỦ NHẬT | 05.04.2026</p>
+                            <p class="venue-lunar">(Nhằm ngày 18 tháng 02 năm Bính Ngọ)</p>
+                        </div>
                     </div>
                     <button type="button" id="btnSendWishes" class="btn-send-wishes">Gửi thiệp mừng</button>
                 </div>
@@ -149,16 +166,18 @@
         </div>
     </footer>
 
-    <!-- Modal: Gửi thiệp mừng (QR placeholder) -->
+    <!-- Modal: Gửi thiệp mừng (QR) -->
     <div id="modalWishes" class="modal-overlay" aria-hidden="true">
         <div class="modal-content">
             <button type="button" class="modal-close" id="modalClose" aria-label="Đóng">&times;</button>
             <h3 class="modal-title">Gửi thiệp mừng</h3>
             <p class="modal-desc">Quét mã QR bên dưới để gửi lời chúc mừng đến chúng tôi.</p>
-            <div class="qr-placeholder-wrap">
-                <img src="image/qr-thiep-mung.png" alt="Mã QR gửi thiệp mừng" class="qr-image" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
-                <div class="qr-placeholder">
-                    <p class="placeholder-text">Mã QR – thêm ảnh sau<br>(qr-thiep-mung.png)</p>
+            <div class="qr-pair">
+                <div class="qr-block">
+                    <img src="image/QR_DUC.png" alt="Mã QR Trần Hoàng Đức" class="qr-image">
+                </div>
+                <div class="qr-block">
+                    <img src="image/QR_MY.png" alt="Mã QR Hoàng Thị Hà My" class="qr-image">
                 </div>
             </div>
         </div>

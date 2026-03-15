@@ -31,7 +31,7 @@ function buildGallery() {
 
 // Countdown Timer
 function updateCountdown() {
-    const weddingDate = new Date('2026-03-15T15:00:00').getTime();
+    const weddingDate = new Date('2026-04-04T11:00:00').getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
@@ -138,7 +138,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe intro và thư mời (album được tạo trong buildGallery)
-document.querySelectorAll('.intro-item, .invitation-card').forEach(el => {
+document.querySelectorAll('.intro-item, .invitation-card, .invitation-day').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -172,5 +172,30 @@ if (musicToggle && weddingMusic) {
                 musicToggle.setAttribute('aria-label', 'Phát nhạc');
             }
         });
+
+        // Tự phát nhạc khi vào trang
+        function startMusic() {
+            weddingMusic.play().then(() => {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+                musicToggle.setAttribute('aria-label', 'Tạm dừng nhạc');
+            }).catch(() => {});
+        }
+        startMusic();
+
+        // Nếu trình duyệt chặn autoplay: phát nhạc ngay khi user click/chạm lần đầu
+        const once = { click: false, touch: false };
+        document.addEventListener('click', () => {
+            if (!once.click && weddingMusic.paused) {
+                once.click = true;
+                startMusic();
+            }
+        }, { once: true });
+        document.addEventListener('touchstart', () => {
+            if (!once.touch && weddingMusic.paused) {
+                once.touch = true;
+                startMusic();
+            }
+        }, { once: true });
     }
 }
