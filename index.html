@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation - Hoang Duc & Ha My</title>
+    <title>Thiệp mời cưới – Hoàng Đức & Hà My</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,23 +13,24 @@
     <!-- Navigation -->
     <nav class="navbar">
         <ul class="nav-menu">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#story" class="nav-link">Our Story</a></li>
-            <li><a href="#event" class="nav-link">Event</a></li>
-            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#home" class="nav-link">Trang chủ</a></li>
+            <li><a href="#co-dau" class="nav-link">Cô dâu</a></li>
+            <li><a href="#chu-re" class="nav-link">Chú rể</a></li>
+            <li><a href="#thu-moi" class="nav-link">Thư mời</a></li>
+            <li><a href="#gallery" class="nav-link">Album</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Section 1: Ảnh nền (cô dâu + chú rể) + thời gian -->
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
-        <!-- PLACEHOLDER: Replace with actual wedding photo banner -->
+        <img src="DEN09774.jpg" alt="Ảnh cô dâu và chú rể" class="hero-bg-img" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
         <div class="hero-image-placeholder">
-            <p class="placeholder-text">Hero Banner Image Placeholder<br>(Replace with couple's photo)</p>
+            <p class="placeholder-text">Ảnh nền (cô dâu + chú rể)<br>DEN09774.jpg</p>
         </div>
-        
+
         <!-- Music Player Button -->
-        <button id="musicToggle" class="music-toggle" aria-label="Play music">
+        <button id="musicToggle" class="music-toggle" aria-label="Phát nhạc">
             <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
             </svg>
@@ -37,138 +38,104 @@
                 <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
             </svg>
         </button>
-        
+
         <div class="hero-content">
-            <h1 class="couple-names">Hoang Duc <span class="ampersand">&</span> Ha My</h1>
-            <p class="wedding-date">March 15, 2026</p>
+            <h1 class="couple-names">Hoàng Đức <span class="ampersand">&</span> Hà My</h1>
+            <p class="wedding-date">15 tháng 3 năm 2026</p>
             <div class="countdown" id="countdown">
                 <div class="countdown-item">
                     <span id="days" class="countdown-value">00</span>
-                    <span class="countdown-label">Days</span>
+                    <span class="countdown-label">Ngày</span>
                 </div>
                 <div class="countdown-item">
                     <span id="hours" class="countdown-value">00</span>
-                    <span class="countdown-label">Hours</span>
+                    <span class="countdown-label">Giờ</span>
                 </div>
                 <div class="countdown-item">
                     <span id="minutes" class="countdown-value">00</span>
-                    <span class="countdown-label">Minutes</span>
+                    <span class="countdown-label">Phút</span>
                 </div>
                 <div class="countdown-item">
                     <span id="seconds" class="countdown-value">00</span>
-                    <span class="countdown-label">Seconds</span>
+                    <span class="countdown-label">Giây</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Story Section -->
-    <section id="story" class="story-section">
+    <!-- Section 2: Ảnh cô dâu + giới thiệu -->
+    <section id="co-dau" class="intro-section">
         <div class="container">
-            <h2 class="section-title">Our Love Story</h2>
-            <div class="story-timeline">
-                <div class="story-item">
-                    <!-- PLACEHOLDER: Replace with actual photo -->
-                    <div class="story-image-placeholder">
-                        <p class="placeholder-text">Photo Placeholder<br>(First Meeting)</p>
-                    </div>
-                    <div class="story-content">
-                        <h3>How We Met</h3>
-                        <p class="story-date">Spring 2020</p>
-                        <p>Our paths crossed at a mutual friend's celebration, and from that moment, we knew something special had begun. It was a serendipitous encounter that would change our lives forever.</p>
+            <h2 class="section-title">Cô dâu</h2>
+            <div class="intro-item">
+                <div class="intro-image-wrap">
+                    <img src="DEN09792.jpg" alt="Cô dâu" class="intro-image" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+                    <div class="intro-image-placeholder">
+                        <p class="placeholder-text">Ảnh cô dâu<br>(DEN09792.jpg)</p>
                     </div>
                 </div>
-                <div class="story-item reverse">
-                    <!-- PLACEHOLDER: Replace with actual photo -->
-                    <div class="story-image-placeholder">
-                        <p class="placeholder-text">Photo Placeholder<br>(First Date)</p>
-                    </div>
-                    <div class="story-content">
-                        <h3>The First Date</h3>
-                        <p class="story-date">Summer 2020</p>
-                        <p>A simple coffee date turned into hours of conversation, laughter, and the realization that we had found something truly extraordinary in each other.</p>
-                    </div>
-                </div>
-                <div class="story-item">
-                    <!-- PLACEHOLDER: Replace with actual photo -->
-                    <div class="story-image-placeholder">
-                        <p class="placeholder-text">Photo Placeholder<br>(Proposal)</p>
-                    </div>
-                    <div class="story-content">
-                        <h3>The Proposal</h3>
-                        <p class="story-date">Winter 2025</p>
-                        <p>Under a sky full of stars, with hearts full of love, we decided to embark on the greatest adventure of all - spending our lives together.</p>
-                    </div>
+                <div class="intro-content">
+                    <p class="intro-text">Hà My – cô gái với nụ cười ấm áp và trái tim nhân hậu. Từ ngày gặp nhau, chúng tôi đã biết rằng đây là duyên phận trời định. Cảm ơn em đã chọn anh làm bạn đồng hành suốt cuộc đời.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Event Details Section -->
-    <section id="event" class="event-section">
+    <!-- Section 3: Ảnh chú rể + giới thiệu -->
+    <section id="chu-re" class="intro-section intro-section-alt">
         <div class="container">
-            <h2 class="section-title">Wedding Details</h2>
-            <div class="event-details">
-                <div class="event-card">
-                    <div class="event-icon">📅</div>
-                    <h3>When</h3>
-                    <p class="event-info">Saturday, March 15, 2026</p>
-                    <p class="event-time">Ceremony: 3:00 PM</p>
-                    <p class="event-time">Reception: 5:00 PM</p>
+            <h2 class="section-title">Chú rể</h2>
+            <div class="intro-item reverse">
+                <div class="intro-image-wrap">
+                    <img src="DEN09838.jpg" alt="Chú rể" class="intro-image" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+                    <div class="intro-image-placeholder">
+                        <p class="placeholder-text">Ảnh chú rể<br>(DEN09838.jpg)</p>
+                    </div>
                 </div>
-                <div class="event-card">
-                    <div class="event-icon">📍</div>
-                    <h3>Where</h3>
-                    <p class="event-info">Grand Hall</p>
-                    <p class="event-address">123 City Center Avenue<br>Downtown District<br>City, State 12345</p>
-                </div>
-                <div class="event-card">
-                    <div class="event-icon">👔</div>
-                    <h3>Dress Code</h3>
-                    <p class="event-info">Formal Attire</p>
-                    <p class="event-note">We kindly request no white attire, reserved for the bride.</p>
+                <div class="intro-content">
+                    <p class="intro-text">Hoàng Đức – chàng trai chín chắn, trách nhiệm và luôn yêu thương gia đình. Anh là điểm tựa vững chắc và là người bạn đời mà em mong đợi. Cảm ơn anh đã đến bên em.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Section 4: Thư mời (ảnh + thời gian + địa điểm + nút Gửi thiệp mừng) -->
+    <section id="thu-moi" class="invitation-section">
+        <div class="container">
+            <h2 class="section-title">Thư mời</h2>
+            <div class="invitation-block">
+                <div class="invitation-image-wrap">
+                    <img src="DEN00562.jpg" alt="Thư mời" class="invitation-image" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+                    <div class="invitation-image-placeholder">
+                        <p class="placeholder-text">Ảnh thư mời<br>(DEN00562.jpg)</p>
+                    </div>
+                </div>
+                <div class="invitation-details">
+                    <div class="invitation-card">
+                        <div class="event-icon">📅</div>
+                        <h3>Thời gian</h3>
+                        <p class="event-info">Thứ Bảy, 15 tháng 3 năm 2026</p>
+                        <p class="event-time">Lễ thành hôn: 15:00</p>
+                        <p class="event-time">Tiệc chiêu đãi: 17:00</p>
+                    </div>
+                    <div class="invitation-card">
+                        <div class="event-icon">📍</div>
+                        <h3>Địa điểm</h3>
+                        <p class="event-info">Grand Hall</p>
+                        <p class="event-address">123 Đại lộ Trung tâm<br>Quận Nội thành<br>Thành phố, Tỉnh 12345</p>
+                    </div>
+                    <button type="button" id="btnSendWishes" class="btn-send-wishes">Gửi thiệp mừng</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Album ảnh cưới -->
     <section id="gallery" class="gallery-section">
         <div class="container">
-            <h2 class="section-title">Our Memories</h2>
-            <div class="gallery-grid">
-                <!-- PLACEHOLDER: Replace all gallery images with actual photos -->
-                <div class="gallery-item">
-                    <div class="gallery-image-placeholder">
-                        <p class="placeholder-text">Gallery Image 1<br>(Replace)</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image-placeholder">
-                        <p class="placeholder-text">Gallery Image 2<br>(Replace)</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image-placeholder">
-                        <p class="placeholder-text">Gallery Image 3<br>(Replace)</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image-placeholder">
-                        <p class="placeholder-text">Gallery Image 4<br>(Replace)</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image-placeholder">
-                        <p class="placeholder-text">Gallery Image 5<br>(Replace)</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image-placeholder">
-                        <p class="placeholder-text">Gallery Image 6<br>(Replace)</p>
-                    </div>
-                </div>
+            <h2 class="section-title">Album ảnh cưới</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Ô album được tạo bằng script từ danh sách ảnh (albumImages) -->
             </div>
         </div>
     </section>
@@ -176,11 +143,26 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">We can't wait to celebrate with you!</p>
-            <p class="footer-names">Hoang Duc & Ha My</p>
+            <p class="footer-text">Rất hân hạnh được đón tiếp!</p>
+            <p class="footer-names">Hoàng Đức & Hà My</p>
             <p class="footer-hashtag">#HoangDucHaMy2026</p>
         </div>
     </footer>
+
+    <!-- Modal: Gửi thiệp mừng (QR placeholder) -->
+    <div id="modalWishes" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="modal-close" id="modalClose" aria-label="Đóng">&times;</button>
+            <h3 class="modal-title">Gửi thiệp mừng</h3>
+            <p class="modal-desc">Quét mã QR bên dưới để gửi lời chúc mừng đến chúng tôi.</p>
+            <div class="qr-placeholder-wrap">
+                <img src="qr-thiep-mung.png" alt="Mã QR gửi thiệp mừng" class="qr-image" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');">
+                <div class="qr-placeholder">
+                    <p class="placeholder-text">Mã QR – thêm ảnh sau<br>(qr-thiep-mung.png)</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Audio Element -->
     <audio id="weddingMusic" loop>

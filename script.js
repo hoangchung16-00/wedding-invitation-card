@@ -1,3 +1,32 @@
+// Danh sách ảnh cho album (những ảnh còn lại – sửa tên file theo ảnh bạn có)
+// Đã dùng riêng: DEN09774.jpg (nền), DEN09792.jpg (cô dâu), DEN09838.jpg (chú rể), DEN00562.jpg (thư mời)
+const albumImages = [
+    'DEN00414.JPG', 'DEN00499.jpg', 'DEN00004.jpg', 'DEN00640.jpg', 'DEN00729.jpg', 'DEN09537.jpg', 'DEN09572.jpg',
+    'DEN00448.jpg', 'DEN00700.jpg', 'DEN00017.jpg', 'DEN00221.jpg', 'DEN00313.jpg',  
+]
+
+function buildGallery() {
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    albumImages.forEach((src, i) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        const num = i + 1;
+        item.innerHTML = '<img src="' + src + '" alt="Album ' + num + '" onerror="this.style.display=\'none\'; this.nextElementSibling.classList.add(\'show\');">' +
+            '<div class="gallery-image-placeholder"><p class="placeholder-text">' + src + '</p></div>';
+        grid.appendChild(item);
+    });
+    // Gắn lại click và observer cho item mới
+    grid.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => console.log('Gallery item clicked'));
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
+    });
+}
+
 // Countdown Timer
 function updateCountdown() {
     const weddingDate = new Date('2026-03-15T15:00:00').getTime();
@@ -58,13 +87,38 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Gallery Image Hover Effect
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function() {
-        // Placeholder for future lightbox functionality
-        console.log('Gallery item clicked');
+// Popup "Gửi thiệp mừng" – mở/đóng
+const modalWishes = document.getElementById('modalWishes');
+const btnSendWishes = document.getElementById('btnSendWishes');
+const modalClose = document.getElementById('modalClose');
+
+function openWishesModal() {
+    if (modalWishes) {
+        modalWishes.classList.add('show');
+        modalWishes.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeWishesModal() {
+    if (modalWishes) {
+        modalWishes.classList.remove('show');
+        modalWishes.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+}
+
+if (btnSendWishes) {
+    btnSendWishes.addEventListener('click', openWishesModal);
+}
+if (modalClose) {
+    modalClose.addEventListener('click', closeWishesModal);
+}
+if (modalWishes) {
+    modalWishes.addEventListener('click', function(e) {
+        if (e.target === modalWishes) closeWishesModal();
     });
-});
+}
 
 // Intersection Observer for Fade-in Animations
 const observerOptions = {
@@ -81,13 +135,16 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.querySelectorAll('.story-item, .event-card, .gallery-item').forEach(el => {
+// Observe intro và thư mời (album được tạo trong buildGallery)
+document.querySelectorAll('.intro-item, .invitation-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+// Tạo album từ danh sách ảnh còn lại
+buildGallery();
 
 // Music Player Toggle
 const musicToggle = document.getElementById('musicToggle');
@@ -105,12 +162,12 @@ if (musicToggle && weddingMusic) {
                 });
                 playIcon.style.display = 'none';
                 pauseIcon.style.display = 'block';
-                musicToggle.setAttribute('aria-label', 'Pause music');
+                musicToggle.setAttribute('aria-label', 'Tạm dừng nhạc');
             } else {
                 weddingMusic.pause();
                 playIcon.style.display = 'block';
                 pauseIcon.style.display = 'none';
-                musicToggle.setAttribute('aria-label', 'Play music');
+                musicToggle.setAttribute('aria-label', 'Phát nhạc');
             }
         });
     }

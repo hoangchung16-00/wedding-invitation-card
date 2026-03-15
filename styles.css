@@ -68,7 +68,7 @@ body {
     color: var(--primary-color);
 }
 
-/* Hero Section */
+/* Hero Section – ảnh không bị cắt, nền giống các section ảnh khác */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -77,6 +77,17 @@ body {
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    background: var(--accent-color);
+}
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 1;
 }
 
 .hero-image-placeholder {
@@ -86,10 +97,14 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #d4a373 0%, #8b6f47 100%);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: 1;
+}
+
+.hero-image-placeholder.show {
+    display: flex;
 }
 
 .placeholder-text {
@@ -192,63 +207,257 @@ body {
     margin: 20px auto 0;
 }
 
-/* Story Section */
-.story-section {
+/* Intro Section (Cô dâu / Chú rể) */
+.intro-section {
     padding: 100px 0;
     background: var(--white);
 }
 
-.story-timeline {
-    max-width: 900px;
-    margin: 0 auto;
+.intro-section-alt {
+    background: var(--background-light);
 }
 
-.story-item {
+.intro-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-bottom: 80px;
+    max-width: 900px;
+    margin: 0 auto 60px;
     align-items: center;
 }
 
-.story-item.reverse {
+.intro-item.reverse {
     direction: rtl;
 }
 
-.story-item.reverse .story-content {
+.intro-item.reverse .intro-content {
     direction: ltr;
 }
 
-.story-image-placeholder {
+.intro-image-wrap {
+    position: relative;
     width: 100%;
     height: 350px;
-    background: linear-gradient(135deg, #f5e6d3 0%, #d4a373 100%);
     border-radius: 10px;
-    display: flex;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: var(--accent-color);
+}
+
+.intro-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.intro-image-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f5e6d3 0%, #d4a373 100%);
+    display: none;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.story-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: var(--text-dark);
-    margin-bottom: 10px;
+.intro-image-placeholder.show {
+    display: flex;
 }
 
-.story-date {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+.intro-content {
+    padding: 0 20px;
 }
 
-.story-content p:last-child {
+.intro-text {
     color: var(--text-light);
     line-height: 1.8;
+    font-size: 16px;
+}
+
+/* Invitation Section (Thư mời) */
+.invitation-section {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.invitation-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.invitation-image-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: var(--accent-color);
+}
+
+.invitation-image {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.invitation-image-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f5e6d3 0%, #d4a373 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.invitation-image-placeholder.show {
+    display: flex;
+}
+
+.invitation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.invitation-card {
+    background: var(--background-light);
+    padding: 24px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.invitation-card .event-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.invitation-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.btn-send-wishes {
+    margin-top: 10px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-send-wishes:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Modal Gửi thiệp mừng (QR) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--text-light);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-dark);
+}
+
+.modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.modal-desc {
+    color: var(--text-light);
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.qr-placeholder-wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.qr-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.qr-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f5e6d3 0%, #d4a373 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-placeholder.show {
+    display: flex;
+}
+
+.qr-placeholder .placeholder-text {
+    font-size: 14px;
+    padding: 12px;
 }
 
 /* Event Section */
@@ -321,16 +530,38 @@ body {
     border-radius: 10px;
     cursor: pointer;
     aspect-ratio: 1;
+    background: var(--accent-color);
+}
+
+.gallery-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
 }
 
 .gallery-image-placeholder {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #f5e6d3 0%, #d4a373 100%);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
+}
+
+.gallery-image-placeholder.show {
+    display: flex;
 }
 
 .gallery-item:hover .gallery-image-placeholder {
@@ -450,14 +681,23 @@ body {
         font-size: 36px;
     }
 
-    .story-item,
-    .story-item.reverse {
+    .intro-item,
+    .intro-item.reverse {
         grid-template-columns: 1fr;
         direction: ltr;
     }
 
-    .story-image-placeholder {
+    .intro-image-wrap {
         height: 250px;
+    }
+
+    .invitation-block {
+        grid-template-columns: 1fr;
+    }
+
+    .invitation-image-wrap,
+    .invitation-image {
+        min-height: 250px;
     }
 
     .event-details {
