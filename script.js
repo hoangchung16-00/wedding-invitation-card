@@ -1,8 +1,9 @@
 // Danh sách ảnh cho album (những ảnh còn lại – sửa tên file theo ảnh bạn có)
 // Đã dùng riêng: DEN09774.jpg (nền), DEN09792.jpg (cô dâu), DEN09838.jpg (chú rể), DEN00562.jpg (thư mời)
 const albumImages = [
-    'DEN00414.JPG', 'DEN00499.jpg', 'DEN00004.jpg', 'DEN00640.jpg', 'DEN00729.jpg', 'DEN09537.jpg', 'DEN09572.jpg',
-    'DEN00448.jpg', 'DEN00700.jpg', 'DEN00017.jpg', 'DEN00221.jpg', 'DEN00313.jpg',  
+    'DEN00414.JPG', 'DEN00499.jpg', 'DEN00640.jpg', 'DEN00729.jpg','DEN00448.jpg', 'DEN00700.jpg', 
+    'DEN09537.jpg', 'DEN09572.jpg',
+    'DEN00017.jpg', 'DEN00221.jpg', 'DEN00313.jpg', 'DEN00004.jpg', 
 ]
 
 function buildGallery() {
@@ -31,7 +32,7 @@ function buildGallery() {
 
 // Countdown Timer
 function updateCountdown() {
-    const weddingDate = new Date('2026-04-04T11:00:00').getTime();
+    const weddingDate = new Date('2026-04-05T11:00:00').getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
