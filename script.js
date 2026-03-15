@@ -9,12 +9,14 @@ function buildGallery() {
     const grid = document.getElementById('galleryGrid');
     if (!grid) return;
     grid.innerHTML = '';
-    albumImages.forEach((src, i) => {
+    const imageBase = 'image/';
+    albumImages.forEach((filename, i) => {
+        const src = imageBase + filename;
         const item = document.createElement('div');
         item.className = 'gallery-item';
         const num = i + 1;
         item.innerHTML = '<img src="' + src + '" alt="Album ' + num + '" onerror="this.style.display=\'none\'; this.nextElementSibling.classList.add(\'show\');">' +
-            '<div class="gallery-image-placeholder"><p class="placeholder-text">' + src + '</p></div>';
+            '<div class="gallery-image-placeholder"><p class="placeholder-text">' + filename + '</p></div>';
         grid.appendChild(item);
     });
     // Gắn lại click và observer cho item mới
