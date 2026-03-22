@@ -148,6 +148,11 @@ body {
     margin: 0 15px;
 }
 
+/* Giữ tên cô dâu "Hà My" trên một dòng (đặc biệt trên điện thoại) */
+.bride-name {
+    white-space: nowrap;
+}
+
 .wedding-date {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
